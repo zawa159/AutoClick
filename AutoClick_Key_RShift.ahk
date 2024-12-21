@@ -1,11 +1,12 @@
 ;トレイアイコンの変更
-Menu, Tray, Icon, icon_152382_256.png
+TraySetIcon(A_ScriptDir "\icon_152382_256.png")
 
 ;キーを押している間クリック連打
-~$RShift::
-    While GetKeyState("RShift", "P"){
-        Click ;,Right
-        ;Sleep -32  ;  milliseconds
-        Sleep, 100 ; 1 second
-    }
-return
+RShift::
+{
+  While GetKeyState("RShift", "P"){
+    Click ;,Right
+    ;連打が早い場合は要調整
+    Sleep 100 ; 1 second
+  }
+}
